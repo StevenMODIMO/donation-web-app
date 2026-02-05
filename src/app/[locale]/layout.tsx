@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Donater",
   description:
     "Donater is portal for people to donate to various causes or projects around the world.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 type Props = {
