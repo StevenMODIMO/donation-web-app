@@ -11,26 +11,30 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslations } from "next-intl";
 
 export default function DonationForm() {
+  const t = useTranslations("Donation");
   return (
     <div>
       <Card>
         <CardHeader>
-          <CardTitle className="font-semibold text-lg">Donor Info</CardTitle>
-          <CardDescription>Tell us a little about you.</CardDescription>
+          <CardTitle className="font-semibold text-lg">
+            {t("donor-info")}
+          </CardTitle>
+          <CardDescription>{t("tell")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form className="flex flex-col gap-3">
-            <Label htmlFor="name">Full name</Label>
+            <Label htmlFor="name">{t("name")}</Label>
             <Input placeholder="John Doe" id="name" />
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">{t("email")}</Label>
             <Input
               type="email"
               id="email"
               placeholder="johndoe26@example.com"
             />
-            <Label htmlFor="number">Phone number</Label>
+            <Label htmlFor="number">{t("number")}</Label>
             <Input
               id="number"
               type="number"
@@ -39,9 +43,9 @@ export default function DonationForm() {
               placeholder="+25-657-594-790"
               className="appearance-none"
             />
-            <Label>Message to the cause (Optional)</Label>
-            <Textarea placeholder="I hope this small token of mine helps create a greater impact." />
-            <Button>Continue</Button>
+            <Label>{t("message")}</Label>
+            <Textarea placeholder={t("token")} />
+            <Button>{t("button-text")}</Button>
           </form>
         </CardContent>
       </Card>

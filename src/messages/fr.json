@@ -6,5 +6,15 @@
     "title": "Soutenez ce qui compte",
     "description": "Donater est un moyen simple de contribuer aux causes et aux personnes qui vous tiennent à cœur. Cette démo présente un paiement sécurisé et hébergé par Stripe, dans une expérience claire et transparente.",
     "motto": "De petits gestes, un grand impact."
+  },
+  "Donation": {
+    "donor-info": "Informations sur le donateur",
+    "tell": "Parlez-nous un peu de vous",
+    "name": "Nom complet",
+    "email": "Adresse emai",
+    "number": "Numéro de téléphone",
+    "message": "Message pour la cause (facultatif)",
+    "token": "J’espère que ce petit geste de ma part contribuera à avoir un impact",
+    "button-text": "Continuer"
   }
 }

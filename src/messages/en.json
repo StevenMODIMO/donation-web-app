@@ -6,5 +6,15 @@
     "title": "Support What Matters",
     "description": "Donater is a simple way to contribute to causes and people you care about. This demo showcases secure, hosted Stripe payment processing in a clean and transparent experience.",
     "motto": "Small acts. Real impact."
+  },
+  "Donation": {
+    "donor-info": "Donor Info",
+    "tell": "Tell us a little about you",
+    "name": "Full name",
+    "email": "Email",
+    "number": "Phone number",
+    "message": "Message to the cause (Optional)",
+    "token": "I hope this small token of mine helps create greater impact",
+    "button-text": "Continue"
   }
 }
