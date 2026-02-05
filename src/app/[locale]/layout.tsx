@@ -33,7 +33,7 @@ export default async function RootLayout({ children, params }: Props) {
     notFound();
   }
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-full p-4`}
       >
