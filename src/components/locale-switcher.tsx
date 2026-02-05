@@ -4,7 +4,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { Languages } from "lucide-react";
 import { Button } from "./ui/button";
 
-const locales = ["en", "fr"];
 
 export default function LocaleSwitcher() {
   const pathname = usePathname();
