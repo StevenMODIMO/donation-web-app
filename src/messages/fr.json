@@ -1,0 +1,10 @@
+{
+  "HomePage": {
+    "title": "Donateur"
+  },
+  "Hero": {
+    "title": "Soutenez ce qui compte",
+    "description": "Donater est un moyen simple de contribuer aux causes et aux personnes qui vous tiennent à cœur. Cette démo présente un paiement sécurisé et hébergé par Stripe, dans une expérience claire et transparente.",
+    "motto": "De petits gestes, un grand impact."
+  }
+}

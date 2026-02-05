@@ -1,0 +1,10 @@
+{
+  "HomePage": {
+    "title": "Donater"
+  },
+  "Hero": {
+    "title": "Support What Matters",
+    "description": "Donater is a simple way to contribute to causes and people you care about. This demo showcases secure, hosted Stripe payment processing in a clean and transparent experience.",
+    "motto": "Small acts. Real impact."
+  }
+}
