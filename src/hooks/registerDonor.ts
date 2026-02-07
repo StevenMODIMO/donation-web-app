@@ -12,6 +12,8 @@ interface RegisterTypes {
 export const useRegisterDonor = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [donorMessage, setDonorMessage] = useState<string | null>(null);
   const pathname = usePathname();
   const currentLocale = pathname.split("/")[1] || "en";
 
@@ -35,10 +37,12 @@ export const useRegisterDonor = () => {
 
       const data = await response.json();
 
-      if (data.error) {
+      if (data.message) {
+        setDonorMessage(data.message);
+      } else if (data.error) {
         setError(data.error);
-      } else {
-        console.log(data);
+      } else if (data.success) {
+        setSuccess(data.success);
       }
     } catch (err: any) {
       setError(err.message);
@@ -47,5 +51,15 @@ export const useRegisterDonor = () => {
     }
   };
 
-  return { register, error, loading, setError, setLoading };
+  return {
+    register,
+    error,
+    loading,
+    setError,
+    setLoading,
+    success,
+    setSuccess,
+    donorMessage,
+    setDonorMessage,
+  };
 };
