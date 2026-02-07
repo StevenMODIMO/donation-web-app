@@ -11,9 +11,26 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslations } from "next-intl";
+import { useRegisterDonor } from "@/hooks/registerDonor";
+import { useState } from "react";
 
 export default function DonationForm() {
   const t = useTranslations("Donation");
+  const { register, error, loading, setError, setLoading } = useRegisterDonor();
+  const [full_name, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    await register({ full_name, email, phone_number, message });
+    setFullName("");
+    setPhoneNumber("");
+    setEmail("");
+    setMessage("");
+  };
   return (
     <div>
       <Card>
@@ -24,27 +41,42 @@ export default function DonationForm() {
           <CardDescription>{t("tell")}</CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="flex flex-col gap-3">
+          <form
+            onFocus={() => setError(null)}
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-3"
+          >
+            {error && <div>{error}</div>}
             <Label htmlFor="name">{t("name")}</Label>
-            <Input placeholder="John Doe" id="name" />
+            <Input
+              value={full_name}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="John Doe"
+              id="name"
+            />
             <Label htmlFor="email">{t("email")}</Label>
             <Input
-              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               id="email"
               placeholder="johndoe26@example.com"
             />
             <Label htmlFor="number">{t("number")}</Label>
             <Input
+              value={phone_number}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               id="number"
-              type="number"
-              min={0}
-              max={15}
-              placeholder="+25-657-594-790"
-              className="appearance-none"
+              placeholder="+2 345-45-3435"
             />
             <Label>{t("message")}</Label>
-            <Textarea placeholder={t("token")} />
-            <Button>{t("button-text")}</Button>
+            <Textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder={t("token")}
+            />
+            <Button disabled={loading} className="disabled:bg-mute">
+              {t("button-text")}
+            </Button>
           </form>
         </CardContent>
       </Card>
