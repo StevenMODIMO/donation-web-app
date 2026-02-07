@@ -77,37 +77,36 @@ export default function DonationForm() {
           >
             <AnimatePresence>
               {donorMessage && (
-               <motion.div
-  initial={{ scale: 0.8, opacity: 0.8 }}
-  animate={{ scale: 1, opacity: 1 }}
-  exit={{ scale: 0, opacity: 0 }}
-  className="relative"
->
-  <Alert className="bg-green-500 p-4 flex flex-col gap-3 items-center">
-    {/* Info icon + message */}
-    <div className="flex items-center gap-2">
-      <InfoIcon />
-      <AlertDescription className="text-black text-xs sm:text-base">
-        {donorMessage}
-      </AlertDescription>
-    </div>
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0.8 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  className="relative"
+                >
+                  <Alert className="bg-green-500 p-4 flex flex-col gap-3 items-center">
+                    {/* Info icon + message */}
+                    <div className="flex items-center gap-2">
+                      <InfoIcon />
+                      <AlertDescription className="text-black text-xs sm:text-base">
+                        {donorMessage}
+                      </AlertDescription>
+                    </div>
 
-    {/* Close icon */}
-    <Cross
-      className="absolute right-2 top-2 rotate-45 cursor-pointer"
-      onClick={() => setDonorMessage(null)}
-    />
+                    {/* Close icon */}
+                    <Cross
+                      className="absolute right-2 top-2 rotate-45 cursor-pointer"
+                      onClick={() => setDonorMessage(null)}
+                    />
 
-    {/* Button centered below the message */}
-    <Button
-      className="mt-2"
-      onClick={() => router.push(`/${locale}/donate`)}
-    >
-      Continue to Donation
-    </Button>
-  </Alert>
-</motion.div>
-
+                    {/* Button centered below the message */}
+                    <Button
+                      className="mt-2"
+                      onClick={() => router.push(`/${locale}/donate`)}
+                    >
+                      Continue to Donation
+                    </Button>
+                  </Alert>
+                </motion.div>
               )}
             </AnimatePresence>
             <AnimatePresence>
