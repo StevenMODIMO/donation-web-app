@@ -49,7 +49,9 @@ export default function DonationForm() {
     setMessage("");
 
     if (success || donorMessage) {
-      router.push(`/${locale}/donate`);
+      setTimeout(() => {
+        router.push(`/${locale}/donate`);
+      }, 1500); // 1.5s delay to show the message
     }
   };
   return (
