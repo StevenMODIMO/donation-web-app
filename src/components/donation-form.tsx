@@ -47,6 +47,10 @@ export default function DonationForm() {
     setPhoneNumber("");
     setEmail("");
     setMessage("");
+
+    if (success || donorMessage) {
+      router.push(`/${locale}/donate`);
+    }
   };
   return (
     <motion.div
@@ -84,7 +88,6 @@ export default function DonationForm() {
                   className="relative"
                 >
                   <Alert className="bg-green-500 p-4 flex flex-col gap-3 items-center">
-                  
                     <div className="flex items-center gap-2">
                       <InfoIcon />
                       <AlertDescription className="text-black text-xs sm:text-base">
@@ -92,13 +95,11 @@ export default function DonationForm() {
                       </AlertDescription>
                     </div>
 
-                   
                     <Cross
                       className="absolute right-2 top-2 rotate-45 cursor-pointer"
                       onClick={() => setDonorMessage(null)}
                     />
 
-                    
                     <Button
                       className="mt-2"
                       onClick={() => router.push(`/${locale}/donate`)}
