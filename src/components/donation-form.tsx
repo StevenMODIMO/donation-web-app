@@ -29,6 +29,7 @@ export default function DonationForm() {
     setSuccess,
     donorMessage,
     setDonorMessage,
+    show,
   } = useRegisterDonor();
   const [full_name, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -175,9 +176,18 @@ export default function DonationForm() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder={t("token")}
             />
-            <Button disabled={loading} className="disabled:bg-mute">
-              {t("button-text")}
-            </Button>
+            {show ? (
+              <Button
+                className="mt-2"
+                onClick={() => router.push(`/${locale}/donate`)}
+              >
+                Continue to Donation
+              </Button>
+            ) : (
+              <Button disabled={loading} className="disabled:bg-mute">
+                {t("button-text")}
+              </Button>
+            )}
           </form>
         </CardContent>
       </Card>

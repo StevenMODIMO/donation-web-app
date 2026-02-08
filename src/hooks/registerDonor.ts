@@ -14,6 +14,7 @@ export const useRegisterDonor = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [donorMessage, setDonorMessage] = useState<string | null>(null);
+    const [show, setShow] = useState(false)
   const pathname = usePathname();
   const currentLocale = pathname.split("/")[1] || "en";
 
@@ -42,6 +43,7 @@ export const useRegisterDonor = () => {
       } else if (data.error) {
         setError(data.error);
       } else if (data.success) {
+        setShow(true)
         setSuccess(data.success);
       }
     } catch (err: any) {
@@ -61,5 +63,6 @@ export const useRegisterDonor = () => {
     setSuccess,
     donorMessage,
     setDonorMessage,
+    show
   };
 };
